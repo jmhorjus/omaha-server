@@ -60,7 +60,7 @@ class ELKSender(BaseSender):
             extra['logger_name'] = 'omaha_server'
 
             # Send message with logger.
-            logger.info(add_extra_to_log_message("received crash report", extra=extra))
+            logger.info(add_extra_to_log_message("Received crash report", extra=extra))
 
 senders_dict = {
     "Sentry": SentrySender,
