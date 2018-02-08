@@ -164,11 +164,11 @@ output.elasticsearch:
   # Array of hosts to connect to.
   hosts: ["localhost:9200"]
   pipeline: "standard_filter"
-  #loadbalance: true
+  loadbalance: true
 
   # Optional index name. The default is "filebeat" plus date and generates [filebeat-]YYYY.MM.DD keys.
   # In case you modify this pattern you must update setup.template.name and setup.template.pattern accordingly.
-  # index: "filebeat-omahaserver-%{+yyyy.MM.dd}"
+  index: "filebeat-omahaserver-%{+yyyy.MM.dd}"
 
   # Optional protocol and basic auth credentials.
   #protocol: "https"
