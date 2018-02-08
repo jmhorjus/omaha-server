@@ -33,7 +33,7 @@ processors:
  - drop_event:
      when:
         regexp:
-           message: "tasks\.collect_statistics"
+           message: "tasks.collect_statistics"
 
 #- type: log
 #  enabled: false
