@@ -25,7 +25,15 @@ processors:
  - drop_event:
      when:
         regexp:
-           message: "(/healthcheck/status/)|(auto_monitoring_size)|(tasks\.collect_statistics)"
+           message: "/healthcheck/status/"
+ - drop_event:
+     when:
+        regexp:
+           message: "auto_monitoring_size"
+ - drop_event:
+     when:
+        regexp:
+           message: "tasks\.collect_statistics"
 
 #- type: log
 #  enabled: false
