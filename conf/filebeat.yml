@@ -93,6 +93,7 @@ filebeat.config.modules:
 
 setup.template.enabled: true
 setup.template.name: "filebeat"
+setup.template.pattern: "filebeat-omahaserver-%{[beat.version]}-*"
 setup.template.fields: "fields.yml"
 setup.template.overwrite: false
 setup.template.settings:
