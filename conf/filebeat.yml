@@ -25,7 +25,15 @@ processors:
  - drop_event:
      when:
         regexp:
-           message: "(/healthcheck/status/)|(auto_monitoring_size)|(tasks\.collect_statistics)"
+           message: "/healthcheck/status/"
+ - drop_event:
+     when:
+        regexp:
+           message: "auto_monitoring_size"
+ - drop_event:
+     when:
+        regexp:
+           message: "tasks.collect_statistics"
 
 #- type: log
 #  enabled: false
@@ -85,6 +93,7 @@ filebeat.config.modules:
 
 setup.template.enabled: true
 setup.template.name: "filebeat"
+setup.template.pattern: "filebeat-omahaserver-%{[beat.version]}-*"
 setup.template.fields: "fields.yml"
 setup.template.overwrite: false
 setup.template.settings:
@@ -124,7 +133,7 @@ setup.template.settings:
 
 # Starting with Beats version 6.0.0, the dashboards are loaded via the Kibana API.
 # This requires a Kibana endpoint configuration.
-setup.kibana:
+# setup.kibana:
 
   # Kibana Host
   # Scheme and port can be left out and will be set to the default (http and 5601)
@@ -160,7 +169,7 @@ output.elasticsearch:
 
   # Optional index name. The default is "filebeat" plus date and generates [filebeat-]YYYY.MM.DD keys.
   # In case you modify this pattern you must update setup.template.name and setup.template.pattern accordingly.
-  # index: "filebeat-omahaserver-%{+yyyy.MM.dd}"
+  index: "filebeat-omahaserver-%{+yyyy.MM.dd}"
 
   # Optional protocol and basic auth credentials.
   #protocol: "https"
