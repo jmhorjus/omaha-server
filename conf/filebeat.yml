@@ -34,6 +34,10 @@ processors:
      when:
         regexp:
            message: "tasks.collect_statistics"
+ - drop_event:
+     when:
+        regexp:
+           message: "POST /service/update2 HTTP/1.1"
 
 #- type: log
 #  enabled: false
