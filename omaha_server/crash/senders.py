@@ -56,8 +56,9 @@ class ELKSender(BaseSender):
 
             # The "message" is actually a crash signature, not appropriate for the ELK "message" field.
             extra['signature'] = message
-            # All ELK messages are expected to include logger_name.
+            # Include logger_name and bg_state (crash reports are always 'blue').
             extra['logger_name'] = 'omaha_server'
+            extra['bg_name'] = 'blue'
 
             # Send message with logger.
             logger.info(add_extra_to_log_message("Received crash report", extra=extra))
