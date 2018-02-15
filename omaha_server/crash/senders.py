@@ -58,7 +58,7 @@ class ELKSender(BaseSender):
             extra['signature'] = message
             # Include logger_name and bg_state (crash reports are always 'blue').
             extra['logger_name'] = 'omaha_server'
-            extra['bg_name'] = 'blue'
+            extra['bg_state'] = 'blue'
 
             # Send message with logger.
             logger.info(add_extra_to_log_message("Received crash report", extra=extra))
