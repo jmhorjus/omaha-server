@@ -94,7 +94,7 @@ def create_admin():
 def configure_nginx():
     filebeat_host = os.environ.get('FILEBEAT_HOST', '')
     filebeat_port = os.environ.get('FILEBEAT_PORT', '')
-    log_nginx_to_filebeat = True if os.environ.get('LOG_NGINX_TO_FILEBEAT', 'True').title() == 'True' else False
+    log_nginx_to_filebeat = True if os.environ.get('LOG_NGINX_TO_FILEBEAT', 'False').title() == 'True' else False
     if log_nginx_to_filebeat and filebeat_host and filebeat_port.isdigit():
         sh("sed -i 's/access_log.*;/access_log syslog:server=%s:%s main;/g' /etc/nginx/nginx.conf" % (filebeat_host, filebeat_port))
         sh("sed -i 's/error_log.*;/error_log syslog:server=%s:%s;/g' /etc/nginx/nginx.conf" % (filebeat_host, filebeat_port))

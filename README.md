@@ -236,7 +236,7 @@ app:
 | ELK_HOST                  | Logstash host        | ''                         |
 | ELK_PORT                  | Logstash TCP port    | ''                         |
 | FILEBEAT_DESTINATION      | filebeat output type | ''                         |
-| LOG_NGINX_TO_FILEBEAT     | Send logs to filebeat| 'True'                     |
+| LOG_NGINX_TO_FILEBEAT     | Send logs to filebeat| 'False'                    |
 
 
 - [uWSGI Options](http://uwsgi-docs.readthedocs.org/en/latest/Options.html) & [Environment variables](http://uwsgi-docs.readthedocs.org/en/latest/Configuration.html#environment-variables)
